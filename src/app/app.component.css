@@ -1,0 +1,31 @@
+  .card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+  }
+
+  .card-content {
+    margin-top: 5%;
+  }
+
+  .subtitle {
+    color: gray;
+    margin: 0 auto;
+  }
+
+  .table-header {
+    color: white;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .table-cell {
+    color: black;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
