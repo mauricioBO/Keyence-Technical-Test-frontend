@@ -39,7 +39,7 @@ export class AppComponent {
   ) {}
 
   ngOnInit(){
-    this.http.get('http://localhost:3000/findAll',{ 'headers': this.headers })
+    this.http.get('http://localhost:3000/api/findAll',{ 'headers': this.headers })
     .subscribe((data: any) => {
       this.data = data;
     })
@@ -61,7 +61,7 @@ export class AppComponent {
           //   console.log(this.excelData[i]["User Name"]);
           // }
           this.excelData.forEach((element) => {
-            this.http.post<any>(`http://localhost:3000/insertUser`,{
+            this.http.post<any>(`http://localhost:3000/api/insertUser`,{
               userID: element["User ID"],
               userName: element["User Name"],
               date: element["Date"],
@@ -95,7 +95,7 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe(result => {
       if(result){
         let userUpdated: User = result;
-        this.http.put<any>(`http://localhost:3000/updateUser/${userUpdated.userID}`,{
+        this.http.put<any>(`http://localhost:3000/api/updateUser/${userUpdated.userID}`,{
           userID: userUpdated.userID,
           userName: userUpdated.userName,
           date: userUpdated.date,
@@ -120,7 +120,7 @@ export class AppComponent {
   }
 
   onDelete(event: Event, eventData: User, rowIndex: number){
-    this.http.delete(`http://localhost:3000/deleteUser/${eventData.userID}`,{ 'headers': this.headers })
+    this.http.delete(`http://localhost:3000/api/deleteUser/${eventData.userID}`,{ 'headers': this.headers })
     .subscribe({
       next: data => {
           console.log(data);
@@ -137,7 +137,7 @@ export class AppComponent {
   }
 
   refresh(): void {
-    this.http.get('http://localhost:3000/findAll',{ 'headers': this.headers })
+    this.http.get('http://localhost:3000/api/findAll',{ 'headers': this.headers })
     .subscribe((data: any) => {
       this.data = data;
     })
